@@ -5,7 +5,7 @@ app = Flask(__name__, static_url_path="")
 
 @app.route("/")
 def hello():
-    return "Hello, World!"
+    return render_template("home.html")
 
 
 @app.route("/map")
