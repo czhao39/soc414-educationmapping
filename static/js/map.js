@@ -9,10 +9,11 @@ var map = new mapboxgl.Map({
 
 map.on("load", function () {
     function processDistrictClick(e) {
-        new mapboxgl.Popup()
-            .setLngLat(e.lngLat)
-            .setHTML(e.features[0].properties.NAME)
-            .addTo(map);
+        $("#datapanel-title").html(e.features[0].properties.NAME);
+        //new mapboxgl.Popup()
+        //    .setLngLat(e.lngLat)
+        //    .setHTML(e.features[0].properties.NAME)
+        //    .addTo(map);
     }
 
     // When a click event occurs on a feature in the states layer, open a popup at the
