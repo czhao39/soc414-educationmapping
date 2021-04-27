@@ -7,9 +7,9 @@ var map = new mapboxgl.Map({
     zoom: 7
 });
 
-$.getJSON("/json/school_data.json", function(data) {
+$.getJSON("/json/school_data_NJPP.json", function(data) {
     school_data = data;
-    console.log(school_data);
+    console.log(school_data["3400004"]);
 }).fail(function(jqxhr, textStatus, err) {console.log(err);});
 
 chart = new Chart(document.getElementById("demographics-chart"),
@@ -24,10 +24,19 @@ chart = new Chart(document.getElementById("demographics-chart"),
                   }
 );
 
+// Currency formatter.
+var formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
+
 map.on("load", function() {
     function processDistrictClick(e) {
+        // Update district name
         $("#datapanel-title").html(e.features[0].properties.NAME);
-        var the_data = school_data[e.features[0].properties.GEOID + ".0"];
+
+        // Update demographics
+        var the_data = school_data[e.features[0].properties.GEOID];
         chart.data.datasets[0].data = [the_data["American Indian/Alaska Native Students [District] 2016-17"],
                                the_data["Asian or Asian/Pacific Islander Students [District] 2016-17"],
                                the_data["Hispanic Students [District] 2016-17"],
@@ -36,6 +45,9 @@ map.on("load", function() {
                                the_data["Nat. Hawaiian or Other Pacific Isl. Students [District] 2016-17"],
                                the_data["Two or More Races Students [District] 2016-17"]];
         chart.update();
+
+        // Update school funding data
+        $("#eq-val").html(formatter.format(the_data["Current Equalized Valuation, 2020"] / the_data["Resident Enrollment"]));
     }
 
     // When a click event occurs on a feature in the states layer, open a popup at the
