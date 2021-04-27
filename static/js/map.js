@@ -48,6 +48,8 @@ map.on("load", function() {
 
         // Update school funding data
         $("#eq-val").html(formatter.format(the_data["Current Equalized Valuation, 2020"] / the_data["Resident Enrollment"]));
+        $("#state-rev").html(formatter.format(the_data["Total Revenue - State Sources (TSTREV) per Pupil (V33) [District Finance] 2016-17"]));
+        $("#local-rev").html(formatter.format(the_data["Total Revenue - Local Sources (TLOCREV) per Pupil (V33) [District Finance] 2016-17"]));
     }
 
     // When a click event occurs on a feature in the states layer, open a popup at the
