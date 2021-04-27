@@ -1,10 +1,10 @@
-mapboxgl.accessToken = "pk.eyJ1IjoiaGN6aGFvIiwiYSI6ImNrbWszcTFqMTB4ZTYycG11Ynlyb3UxNzUifQ.JuA7bKyFv7GUstkueJx0gA"
+mapboxgl.accessToken = "pk.eyJ1IjoiaGN6aGFvIiwiYSI6ImNrbWszcTFqMTB4ZTYycG11Ynlyb3UxNzUifQ.JuA7bKyFv7GUstkueJx0gA";
 
 var map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/hczhao/ckn2n2gs637qy17mxjrx3v1fm",
-    center: [-74, 40],
-    zoom: 7
+    center: [-74.7, 40],
+    zoom: 7.5
 });
 
 $.getJSON("/json/school_data_NJPP.json", function(data) {
