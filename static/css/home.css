@@ -1,3 +1,7 @@
+nav.navbar {
+    background-color: #1252B3;
+}
+
 #hero-container {
     min-height: calc(100vh - 56px);
     background-image: url("/img/bg.jpg");
