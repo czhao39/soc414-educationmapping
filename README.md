@@ -1,6 +1,5 @@
 # soc414-educationmapping
 
-######################### USING THE DATA PROCESSING AND LOADING FILES #########################
 The two data loading and processing files are convertLEA.py and compile_district_data.py.
 
 convertLEA.py is a file used to convert datasets indexed by LEAID to an NCESID indexed set. To use,
